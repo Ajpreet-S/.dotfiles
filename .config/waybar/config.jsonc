@@ -7,9 +7,12 @@
         "hyprland/window"
     ],
 	"modules-right": [
+		"custom/git-branch",
         "wireplumber",
         "clock"
     ],
+
+
     "hyprland/workspaces": {
         "format": "{id}"
     },
@@ -24,5 +27,14 @@
     },
     "clock": {
         "format": "{:%a %d %b  %H:%M}"
-    }
+    },
+
+	"custom/git-branch": {
+		"exec": "~/.config/waybar/scripts/waybar-git-branch.sh",
+		"interval": 30,
+		"signal": 8,
+		"on-click": "~/.config/waybar/scripts/waybar-git-branch-switch.sh",
+		"on-click-right": "~/.config/waybar/scripts/waybar-git-branch-switch.sh remote",
+		"on-click-middle": "kitty --working-directory $HOME/optic-systems/OS-laravel/optic-systems-legacy/core/repositories/jampack"
+	}
 }

@@ -1,37 +1,39 @@
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 15px;
+    font-size: 14px;
     min-height: 0;
 	color: #aaaaaa;
 }
 
 window#waybar {
-    background-color: rgba(16, 16, 16, 0.25);
+    background-color: rgba(0, 0, 0, 0.4);
     color: #aaaaaa;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    padding: 0 4px;
+    padding: 0px 10px;
 }
 
 #workspaces button {
-    padding: 0 6px;
+    padding: 4px 6px;
     color: #555555;
     background: transparent;
     border: none;
     border-radius: 0;
     box-shadow: none;
+    font-size: 13px;
 }
 
 #workspaces button.active {
     color: #eeeeee;
+    font-size: 15px;
 }
 
 #workspaces button:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.25);
     color: #aaaaaa;
     box-shadow: none;
 }
@@ -43,4 +45,9 @@ window#waybar {
 #wireplumber,
 #clock {
     padding: 0 10px;
+}
+
+#custom-git-branch {
+    padding: 0 10px;
+    color: #aaaaaa;
 }

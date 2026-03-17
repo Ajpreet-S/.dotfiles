@@ -1,0 +1,72 @@
+/* Git branch switcher theme — colors matched to waybar style.css */
+
+* {
+    font: "JetBrainsMono Nerd Font 10";
+
+    bg0: rgba(0,0,0,0.9);
+    bg1: rgba(255,255,255,0.4);
+    bg2: rgba(255,255,255,0.25);
+
+    fg0: #aaaaaa;
+    fg1: #eeeeee;
+    fg2: #555555;
+
+    background-color: transparent;
+    text-color:       @fg0;
+
+    margin:  0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @bg0;
+    location:         north east;
+    x-offset:         -20px;
+    y-offset:          20px;
+    width:             500px;
+    border-radius:     8;
+    border:            1px;
+    border-color:      @bg1;
+}
+
+inputbar {
+    padding:  10px;
+    spacing:  10px;
+    children: [ entry ];
+}
+
+entry {
+    placeholder:       "Branch...";
+    placeholder-color: @fg2;
+}
+
+listview {
+    lines:        39;
+    columns:      1;
+    fixed-height: false;
+    border:       1px 0 0;
+    border-color: @bg1;
+}
+
+element {
+    padding:          8px 16px;
+    background-color: transparent;
+}
+
+element selected normal,
+element selected active {
+    background-color: @bg2;
+    text-color:       @fg1;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+configuration {
+	timeout {
+		delay: 10;
+		action: "kb-cancel";
+	}
+}	
