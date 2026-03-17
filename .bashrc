@@ -13,7 +13,6 @@ HISTSIZE=2000
 HISTFILESIZE=4000
 
 
-
 # ── PATH ──────────────────────────────────────────────────────────────────────
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
