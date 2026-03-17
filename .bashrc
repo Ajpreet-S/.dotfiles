@@ -4,54 +4,68 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# ── Options ───────────────────────────────────────────────────────────────────
 shopt -s autocd
-export PATH="$PATH:/home/username/.local/share/JetBrains/Toolbox/scripts"
-export PATH="$PATH:/home/username/.local/bin"
+shopt -s histappend
+HISTSIZE=2000
+HISTFILESIZE=4000
+
+
+
+# ── PATH ──────────────────────────────────────────────────────────────────────
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+
+
+# ── Environment ───────────────────────────────────────────────────────────────
 export AWS_PROFILE=optic
 
-# Symlink current script to ~/.local/bin                                                
-dsh() {                                                  
-	declare -A containers=(
-		[modp]="optic_modx_php"                       
-		[modn]="optic_modx_nginx"
-		[lavp]="optic_laravel_php"
-		[lavn]="optic_laravel_nginx"
-	)
 
-	local name="${containers[$1]}"
-	if [ -z "$name" ]; then
-		echo "Unknown alias '$1'. Available:
-		${!containers[*]}"
-		return 1
-	fi
+# ── Aliases ───────────────────────────────────────────────────────────────────
+alias ls='ls --color=auto'
+alias l='eza -l'
+alias la='eza -la'
+alias lt='eza -l --tree --level=2'
 
-	docker exec -it "$name" bash 2>/dev/null || docker
-	exec -it "$name" sh
-}
-
-# in order to use nvm (node version manager)
-source /usr/share/nvm/init-nvm.sh
-
-# for zoxide
-eval "$(zoxide init bash)"
-
+alias grep='grep --color=auto'
 alias c=cd
-alias e=eza
 alias v=nvim
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME"'
 
+
+# ── Functions ─────────────────────────────────────────────────────────────────
 cl() {
-	cd $1 && ls
+    cd "$1" && ls
 }
 
 zz() {
-	z $1 && eza
+    z "$1" && eza
 }
 
+# Docker container shell shortcut
+# Usage: dsh <alias>  e.g. dsh lavp
+dsh() {
+    declare -A containers=(
+        [modp]="optic_modx_php"
+        [modn]="optic_modx_nginx"
+        [lavp]="optic_laravel_php"
+        [lavn]="optic_laravel_nginx"
+    )
+
+    local name="${containers[$1]}"
+    if [ -z "$name" ]; then
+        echo "Unknown alias '$1'. Available: ${!containers[*]}"
+        return 1
+    fi
+
+    docker exec -it "$name" bash 2>/dev/null || docker exec -it "$name" sh
+}
+
+# Quick config file opener
+# Usage: config  then press key
 config() {
     declare -A configs=(
         [b]="$HOME/.bashrc"
@@ -82,5 +96,6 @@ config() {
 }
 
 
-# for .dotfile bare repo
-alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME"'
+# ── Tools ─────────────────────────────────────────────────────────────────────
+source /usr/share/nvm/init-nvm.sh
+eval "$(zoxide init bash)"
