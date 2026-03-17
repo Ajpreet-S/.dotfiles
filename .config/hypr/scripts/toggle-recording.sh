@@ -27,5 +27,5 @@ else
         -o "$OUTPUT_FILE" &
 
     echo $! > "$PIDFILE"
-    notify-send -e -i media-record -t 2000 "Screen Recording" "Recording started — DP-3 @ 60fps\nSaving: ${TIMESTAMP}_recording.mp4"
+    notify-send -e -i media-record -t 2000 "Screen Recording" "Recording started — DP-3 @ 60fps\nSaving: ${TIMESTAMP}_screenrecording.mp4"
 fi
