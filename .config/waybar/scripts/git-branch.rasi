@@ -1,7 +1,7 @@
 /* Git branch switcher theme — colors matched to waybar style.css */
 
 * {
-    font: "JetBrainsMono Nerd Font 10";
+    font: "JetBrainsMono Nerd Font 12";
 
     bg0: rgba(0,0,0,0.9);
     bg1: rgba(255,255,255,0.4);
@@ -42,7 +42,7 @@ entry {
 }
 
 listview {
-    lines:        39;
+    lines:        35;
     columns:      1;
     fixed-height: false;
     border:       1px 0 0;
@@ -65,8 +65,13 @@ element-text {
 }
 
 configuration {
-	timeout {
-		delay: 10;
-		action: "kb-cancel";
-	}
-}	
+    case-sensitive: false;
+    matching:       "fuzzy";
+    hover-select:   true;
+    only-match:     true;
+
+    timeout {
+        delay:  10;
+        action: "kb-cancel";
+    }
+}

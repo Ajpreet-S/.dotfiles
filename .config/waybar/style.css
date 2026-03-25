@@ -1,6 +1,6 @@
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 14px;
+    font-size: 16px;
     min-height: 0;
 	color: #aaaaaa;
 }
@@ -24,11 +24,17 @@ window#waybar {
     border: none;
     border-radius: 0;
     box-shadow: none;
+}
+
+#workspaces button label {
     font-size: 13px;
 }
 
 #workspaces button.active {
     color: #eeeeee;
+}
+
+#workspaces button.active label {
     font-size: 15px;
 }
 
@@ -50,4 +56,9 @@ window#waybar {
 #custom-git-branch {
     padding: 0 10px;
     color: #aaaaaa;
+}
+
+#custom-recording-status {
+    padding: 0 10px;
+    color: #ff5555;
 }

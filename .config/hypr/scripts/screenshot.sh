@@ -1,19 +1,10 @@
 #!/bin/bash
-# screenshot.sh [region|window|screen]
-# Captures screenshot via hyprshot → annotate via satty → save + clipboard
-
-MODE=${1:-region}
+# screenshot.sh [annotate]
 TIMESTAMP=$(date '+%Y-%m-%d_%H-%M-%S')
-OUTPUT="$HOME/Pictures/Screenshots/${TIMESTAMP}_${MODE}.png"
+OUTPUT="$HOME/Pictures/Screenshots/${TIMESTAMP}_region.png"
 
-case "$MODE" in
-    region)
-        hyprshot -m region --raw | satty --filename - --copy-command wl-copy --output-filename "$OUTPUT"
-        ;;
-    window)
-        hyprshot -m window --raw | satty --filename - --copy-command wl-copy --output-filename "$OUTPUT"
-        ;;
-    screen)
-        hyprshot -m output --raw | satty --filename - --copy-command wl-copy --output-filename "$OUTPUT"
-        ;;
-esac
+if [ "$1" = "annotate" ]; then
+    hyprshot -m region --raw | satty --filename - --copy-command wl-copy --output-filename "$OUTPUT"
+else
+    hyprshot -m region --raw | tee "$OUTPUT" | wl-copy --type image/png
+fi

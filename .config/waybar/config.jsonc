@@ -1,40 +1,49 @@
 {
     "reload_style_on_change": true,
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-    "modules-center": [
-        "hyprland/window"
-    ],
-	"modules-right": [
-		"custom/git-branch",
-        "wireplumber",
-        "clock"
-    ],
 
+    "modules-left":   [ "hyprland/workspaces" ],
+    "modules-center": [ "hyprland/window" ],
+    "modules-right":  [ "custom/recording-status", "custom/git-branch", "wireplumber", "clock" ],
 
     "hyprland/workspaces": {
         "format": "{id}"
     },
+
     "hyprland/window": {
         "max-length": 80
     },
+
     "wireplumber": {
-        "format": "{icon} {volume}%",
+        "format":       "{icon} {volume}%",
         "format-muted": "󰝟",
         "format-icons": ["󰕿", "󰖀", "󰕾"],
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    },
-    "clock": {
-        "format": "{:%a %d %b  %H:%M}"
+        "on-click":     "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
-	"custom/git-branch": {
-		"exec": "~/.config/waybar/scripts/waybar-git-branch.sh",
-		"interval": 30,
-		"signal": 8,
-		"on-click": "~/.config/waybar/scripts/waybar-git-branch-switch.sh",
-		"on-click-right": "~/.config/waybar/scripts/waybar-git-branch-switch.sh remote",
-		"on-click-middle": "kitty --working-directory $HOME/optic-systems/OS-laravel/optic-systems-legacy/core/repositories/jampack"
-	}
+    "clock": {
+        "format": "{:%a %d %b  %H:%M}",
+        "tooltip":  false 
+    },
+
+    "custom/recording-status": {
+        "exec":     "~/.config/waybar/scripts/recording-status.sh",
+        "interval": "once",
+        "signal":   9,
+        "tooltip":  false
+    },
+
+    // Git branch module — scripts live in ~/.config/waybar/scripts/
+    // Scroll up/down cycles repos defined in git-repos.conf
+    // Super+Shift+Tab toggles visibility (see hyprland.conf)
+    "custom/git-branch": {
+        "exec":           "~/.config/waybar/scripts/waybar-git-branch.sh",
+        "interval":       10,
+        "signal":         8,
+        "on-click":       "~/.config/waybar/scripts/waybar-git-branch.sh switch",
+        "on-click-right": "~/.config/waybar/scripts/waybar-git-branch.sh switch remote",
+        "on-click-middle":"~/.config/waybar/scripts/waybar-git-branch.sh open",
+        "on-scroll-up":   "~/.config/hypr/scripts/waybar-module.sh git-branch 8 up",
+        "on-scroll-down": "~/.config/hypr/scripts/waybar-module.sh git-branch 8 down",
+        "tooltip":  false 
+    }
 }
