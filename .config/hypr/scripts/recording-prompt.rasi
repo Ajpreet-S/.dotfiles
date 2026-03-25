@@ -1,0 +1,50 @@
+/* Compact input prompt for named screen recording */
+
+* {
+    font: "JetBrainsMono Nerd Font 12";
+
+    bg0: rgba(0,0,0,0.9);
+    bg1: rgba(255,255,255,0.4);
+    bg2: rgba(255,255,255,0.25);
+
+    fg0: #aaaaaa;
+    fg1: #eeeeee;
+    fg2: #555555;
+
+    background-color: transparent;
+    text-color:       @fg0;
+
+    margin:  0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @bg0;
+    border:           1px;
+    border-color:     @bg1;
+    border-radius:    8px;
+    location:         center;
+    width:            480px;
+}
+
+inputbar {
+    padding:  10px 10px;
+    spacing:  10px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color:     @fg1;
+    vertical-align: 0.5;
+}
+
+entry {
+    vertical-align:    0.5;
+    placeholder:       "subdir/name  —  empty for date";
+    placeholder-color: @fg2;
+}
+
+listview {
+    lines: 0;
+}

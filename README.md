@@ -12,6 +12,7 @@ Arch Linux + Hyprland config files.
 - `.config/kitty/` — terminal
 - `.config/nvim/` — editor
 - `.config/waybar/` — status bar
+- `Pictures/wallpapers/` — wallpapers sourced from [wallhaven.cc](https://wallhaven.cc)
 
 ## New machine setup
 

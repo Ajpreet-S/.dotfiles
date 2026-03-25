@@ -1,2 +1,23 @@
-# Shell env files — contain secrets, never commit
+Documents/
+Music/
+Videos/
+Pictures/*
+!Pictures/wallpapers/
+
+.bash_history
+.python_history
+.bash_logout
+.claude.json
+
+.steam*
+.cache/
+.npm/
+.nvm/
+.electron-gyp/
+.claude/
+.ssh/
+
 .config/shell/envs/
+.config/Jetbrains/
+.config/BraveSoftware/
+.config/.jira/
