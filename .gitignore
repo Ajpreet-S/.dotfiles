@@ -1,0 +1,2 @@
+# Shell env files — contain secrets, never commit
+.config/shell/envs/
