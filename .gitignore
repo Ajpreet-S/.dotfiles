@@ -14,7 +14,8 @@ Pictures/*
 .npm/
 .nvm/
 .electron-gyp/
-.claude/
+.claude/*
+!.claude/CLAUDE.md
 .ssh/
 
 .config/shell/envs/

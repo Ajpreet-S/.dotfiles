@@ -1,0 +1,12 @@
+aws-session-manager-plugin
+brave-bin
+hyprutils-git
+jetbrains-toolbox
+jira-cli
+ntfysh-bin
+posting
+python-click-default-group
+python-openapi-pydantic
+python-textual-autocomplete
+tidal-hifi
+yay
